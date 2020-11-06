@@ -1,38 +1,63 @@
 import 'dart:io';
 
+// will return something
+double luas_segiempat(double panjang, double lebar) {
+  return panjang * lebar;
+}
+
+double luas_segiempat_arrow_function(double panjang, double lebar) => panjang * lebar;
+
+// will not return something
+void sapa() {
+  print('Hello!');
+}
+
+/** optional parameter */
+/** on using {}, when the function is called, we need to provide to parameter name
+ ** on using [], we don't have to provide the parameter name, only provide by the parameter position
+ ** we are able to set the default value for the parameter input by using the = (equal) sign. example: {String to = 'somebody'}
+ */
+String sayNamedParameter(String from, String message, {String to = 'somebody', String appName = 'chat app'}) {
+  return from + ' say ' + message + ((to != null) ? ' to ' + to : '') + ((appName != null) ? ' via ' + appName : '');
+}
+String sayPositionedParameter(String from, String message, [String to = 'somebody', String appName = 'chat app']) {
+  return from + ' say ' + message + ((to != null) ? ' to ' + to : '') + ((appName != null) ? ' via ' + appName : '');
+}
+
+/** anonymous function
+ * a function that doesn't have any name, usually created for one time only
+ * example: the mathFunction
+ */
+int doMathOperator(int number1, int number2, Function mathFunction) {
+  return mathFunction(number1, number2);
+}
+
 void main(List<String> arguments) {
-  int number = int.tryParse(stdin.readLineSync());
-  String output;
-  String output2;
-  String output3;
+  double p, l, luas, luas_arrow_function;
 
-  output = (number > 0) ? 'positive number' : 'negative or zero number';
+  p = double.tryParse(stdin.readLineSync());
+  l = double.tryParse(stdin.readLineSync());
 
-  if (number > 0) {
-    output2 = 'positive number';
-  } else {
-    output2 = 'negative or zero number';
-  }
+  luas = luas_segiempat(p, l);
+  luas_arrow_function = luas_segiempat_arrow_function(p, l);
 
-  switch(number) {
-    case 0:
-      output3 = 'zero number';
-      break;
-    case 1:
-      output3 = 'one';
-      break;
-    case 2:
-      output3 = 'two';
-      break;
-    case 3:
-      output3 = 'three';
-      break;
-    default:
-      output3 = 'others';
-      break;
-  }
+  print(luas);
+  print(luas_arrow_function);
 
-  print(output);
-  print(output2);
-  print(output3);
+  Function f;
+  f = luas_segiempat;
+
+  print(f(p, l));
+
+  sapa();
+
+  print(sayNamedParameter('Johny', 'Hello', to: 'Doloris', appName: 'whatsapp'));
+  print(sayPositionedParameter('Johny', 'Hello', 'Doloris', 'whatsapp'));
+
+  /** anonymous function
+   * a function that doesn't have any name, usually created for one time only
+   */
+  print(doMathOperator(1, 2, (a, b) {
+    return a + b;
+  }));
 }
