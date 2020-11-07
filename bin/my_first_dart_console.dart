@@ -45,6 +45,72 @@ int doMathOperator(int number1, int number2, Function mathFunction) {
 }
 
 void main(List<String> arguments) {
+  /**
+   * LIST MAPPING COURSE
+   */
+  List<int> myList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  List<int> list = [1, 2, 3];
+
+  // GET VALUE BY INDEX
+  int e = list[0];
+  print(e);
+
+  // CHANGE A VALUE BY  INDEX
+  print('- CHANGE VALUE -');
+  list[0] = 10;
+  print(list[0]);
+
+  // FOR LOOP
+  print('- FOR LOOP -');
+  for (int index = 0; index < list.length; index += 1) {
+    print(list[index]);
+  }
+
+  // SIMPLIFIED FOR LOOP
+  print('- SIMPLIFIED FOR LOOP -');
+  for (int bilangan in list) {
+    print(bilangan);
+  }
+
+  // FOREACH
+  print('- FOR EACH -');
+  list.forEach((bilangan) {
+    print(bilangan);
+  });
+
+  // ADD ANOTHER VALUE TO LIST
+  myList.add(10);
+  myList.addAll(list); // ADD the List 'list' into the 'myList'
+  myList.insert(1, 20); // ADD a value into specific index
+  myList.insertAll(3, [30, 40, 20]);
+  myList.remove(20);
+  myList.removeLast(); // REMOVE THE LAST VALUE
+  myList.removeRange(1, 2); // REMOVE VALUE FROM INDEX RANGE
+
+  if (myList.contains(10)) {
+    print('has 10!');
+  }
+
+  if (myList.every((number) => number % 2 == 0)) {
+    print('All values are odd number!');
+  } else {
+    print('Not all values are odd number!');
+  }
+
+  if (myList.isNotEmpty) {
+    print('tidak kosong');
+  }
+
+  print('- MY LIST -');
+  myList.forEach((bilangan) {
+    print(bilangan);
+  });
+
+
+  /**
+   * NUMBER COURSE
+   */
+
   double p, l, luas, luas_arrow_function;
 
   p = double.tryParse(stdin.readLineSync());
