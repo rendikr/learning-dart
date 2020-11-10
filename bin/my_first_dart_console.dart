@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:my_first_dart_console/persegi_panjang.dart';
 
 // will return something
 double luas_segiempat(double panjang, double lebar) {
@@ -46,21 +47,22 @@ int doMathOperator(int number1, int number2, Function mathFunction) {
 
 void main(List<String> arguments) {
   PersegiPanjang kotak1, kotak2;
-  double panjang1, lebar1, panjang2, lebar2;
-  double luasKotak1, luasKotak2;
+  double luasKotak1;
 
   kotak1 = new PersegiPanjang();
-  kotak1.panjang = double.tryParse(stdin.readLineSync());
+  kotak1.setPanjang(double.tryParse(stdin.readLineSync()));
   kotak1.lebar = double.tryParse(stdin.readLineSync());
 
-  luasKotak1 = kotak1.hitungLuas();
+  luasKotak1 = kotak1.luas;
 
   // without the 'new' is acceptable, as it is an optional. Dart recommends without the 'new'
   kotak2 = PersegiPanjang();
-  kotak2.panjang = double.tryParse(stdin.readLineSync());
+  kotak2.setPanjang(double.tryParse(stdin.readLineSync()));
   kotak2.lebar = double.tryParse(stdin.readLineSync());
 
-  print(luasKotak1 + kotak2.hitungLuas());
+  print(luasKotak1 + kotak2.luas);
+  print(kotak1.getPanjang());
+  print(kotak2.lebar);
 
   /**
    * LIST MAPPING COURSE
@@ -69,10 +71,11 @@ void main(List<String> arguments) {
   List<int> list = [1, 2, 3];
 
   // GET VALUE BY INDEX
+  print('- GET VALUE BY INDEX -');
   int e = list[0];
   print(e);
 
-  // CHANGE A VALUE BY  INDEX
+  // CHANGE A VALUE BY INDEX
   print('- CHANGE VALUE -');
   list[0] = 10;
   print(list[0]);
@@ -179,19 +182,4 @@ void main(List<String> arguments) {
 
   // the result will be `11 | 10`
   print(a.toString() + ' | ' + b.toString());
-}
-
-class PersegiPanjang {
-  /*
-  define the fields of the class object
-   */
-  double panjang;
-  double lebar;
-
-  /*
-  define the methods of the class
-   */
-  double hitungLuas() {
-    return this.panjang * this.lebar;
-  }
 }
