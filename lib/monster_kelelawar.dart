@@ -1,7 +1,9 @@
+import 'package:my_first_dart_console/drink_ability_mixin.dart';
 import 'package:my_first_dart_console/flying_monster.dart';
 import 'package:my_first_dart_console/monster.dart';
 
-class MonsterKelelawar extends Monster implements FlyingMonster {
+class MonsterKelelawar extends Monster
+    implements FlyingMonster {
   @override
   String fly() => 'wuuusshh ... !';
 

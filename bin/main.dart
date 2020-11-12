@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:my_first_dart_console/drink_ability_mixin.dart';
 import 'package:my_first_dart_console/flying_monster.dart';
 import 'package:my_first_dart_console/hero.dart';
+import 'package:my_first_dart_console/knight.dart';
 import 'package:my_first_dart_console/monster.dart';
 import 'package:my_first_dart_console/monster_hiu.dart';
 import 'package:my_first_dart_console/monster_kelelawar.dart';
@@ -10,6 +12,9 @@ void main(List<String> arguments) {
   Hero h = Hero();
   MonsterHiu mh = MonsterHiu();
   List<Monster> monsters = [];
+
+  Knight k = Knight();
+  print(k.drink());
 
   monsters.add(MonsterHiu());
   monsters.add(MonsterKelelawar());
@@ -22,6 +27,8 @@ void main(List<String> arguments) {
       print(mons.fly());
     } else if (mons is FlyingMonster) {
       print((mons as FlyingMonster).fly());
+    } else if (mons is DrinkAbilityMixin) {
+      print((mons as DrinkAbilityMixin).drink());
     }
     print(mons.eatHuman());
   }
