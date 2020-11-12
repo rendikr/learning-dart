@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:my_first_dart_console/flying_monster.dart';
 import 'package:my_first_dart_console/hero.dart';
 import 'package:my_first_dart_console/monster.dart';
 import 'package:my_first_dart_console/monster_hiu.dart';
@@ -7,7 +8,6 @@ import 'package:my_first_dart_console/monster_kelelawar.dart';
 
 void main(List<String> arguments) {
   Hero h = Hero();
-  Monster m = Monster();
   MonsterHiu mh = MonsterHiu();
   List<Monster> monsters = [];
 
@@ -20,20 +20,19 @@ void main(List<String> arguments) {
       print(mons.swim());
     } else if (mons is MonsterKelelawar) {
       print(mons.fly());
+    } else if (mons is FlyingMonster) {
+      print((mons as FlyingMonster).fly());
     }
     print(mons.eatHuman());
   }
 
   h.healthPoint = -10;
-  m.healthPoint = 10;
   mh.healthPoint = 30;
 
   print("hero HP: " + h.healthPoint.toString());
-  print("monster HP: " + m.healthPoint.toString());
   print("monster hiu HP: " + mh.healthPoint.toString());
 
   print(h.killAMonster());
-  print(m.eatHuman());
   print(mh.eatHuman());
   print(mh.swim());
 }
